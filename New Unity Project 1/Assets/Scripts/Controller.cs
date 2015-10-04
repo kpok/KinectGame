@@ -37,6 +37,7 @@ public class Controller : MonoBehaviour
 
     void Start()
     {
+        //edit by browser
         anim = GetComponent<Animator>();
         speed = 1.5f;
         playerScore = 0;
@@ -44,9 +45,6 @@ public class Controller : MonoBehaviour
         gameOverText.text = "";
         setScoreText();
         CreateNewRoad();
-        //temp change 
-        //sfsfs
-        //sdasda
     }
     void CreateNewRoad()
     {
