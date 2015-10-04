@@ -37,6 +37,7 @@ public class Controller : MonoBehaviour
 
     void Start()
     {
+        //edit by browser
         anim = GetComponent<Animator>();
         speed = 1.5f;
         playerScore = 0;
@@ -45,7 +46,6 @@ public class Controller : MonoBehaviour
         setScoreText();
         CreateNewRoad();
     }
-
     void CreateNewRoad()
     {
         for (int i = CurrentCoins.Count - 1; i >= 0; i--)
