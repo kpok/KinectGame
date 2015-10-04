@@ -44,8 +44,10 @@ public class Controller : MonoBehaviour
         gameOverText.text = "";
         setScoreText();
         CreateNewRoad();
+        //temp change 
+        //sfsfs
+        //sdasda
     }
-
     void CreateNewRoad()
     {
         for (int i = CurrentCoins.Count - 1; i >= 0; i--)
