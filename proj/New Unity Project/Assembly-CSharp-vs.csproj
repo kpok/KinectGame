@@ -39,25 +39,27 @@
 	<Reference Include="System.Core" />
 	<Reference Include="System.Xml.Linq" />
 	<Reference Include="UnityEngine">
-	  <HintPath>C:/Program Files (x86)/Unity_4_6_8/Editor/Data/Managed/UnityEngine.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
 	</Reference>
 	<Reference Include="UnityEditor">
-	  <HintPath>C:/Program Files (x86)/Unity_4_6_8/Editor/Data/Managed/UnityEditor.dll</HintPath>
+	  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\GroundControl.cs" />
-     <Compile Include="Assets\Scripts\KinectController.cs" />
-     <Compile Include="Assets\Scripts\ObstacleScript.cs" />
-     <Compile Include="Assets\Scripts\PlayerControl.cs" />
-     <Compile Include="Assets\Scripts\PowerupScript.cs" />
-     <Compile Include="Assets\Scripts\SpawnScript.cs" />
-     <Compile Include="Assets\Scripts\TriggerZoneScript.cs" />
+     <Compile Include="Assets\Scripts\Game scripts\GroundControl.cs" />
+     <Compile Include="Assets\Scripts\Game scripts\ObstacleScript.cs" />
+     <Compile Include="Assets\Scripts\Game scripts\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\Game scripts\PowerupScript.cs" />
+     <Compile Include="Assets\Scripts\Game scripts\SpawnScript.cs" />
+     <Compile Include="Assets\Scripts\Game scripts\TriggerZoneScript.cs" />
+     <Compile Include="Assets\Scripts\Game scripts\mapScript.cs" />
+     <Compile Include="Assets\Scripts\Menu script\menuMenager.cs" />
+     <Compile Include="Assets\Scripts\Menu script\scoreScript.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/david/Documents/New Unity Project/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>C:/Users/Michol/Desktop/repo/KinectGame/proj/New Unity Project/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
- <HintPath>C:/Program Files (x86)/Unity_4_6_8/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.8/Standalone/UnityEngine.UI.dll</HintPath>
+ <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.8/Standalone/UnityEngine.UI.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
