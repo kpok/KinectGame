@@ -6,7 +6,7 @@ public class mapScript : MonoBehaviour
 {
 
     public GameObject map;
-
+    
     public float startPosX;
     public float startPosY;
     public float startPosZ;
@@ -47,6 +47,7 @@ public class mapScript : MonoBehaviour
                 createNewRoad();
             }
         }
+
     }
 
     void createNewRoad()

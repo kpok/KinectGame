@@ -13,6 +13,7 @@ public class SpawnScript : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+        
         int number = Random.Range(1, 4);
 
 		timeElapsed += Time.deltaTime;

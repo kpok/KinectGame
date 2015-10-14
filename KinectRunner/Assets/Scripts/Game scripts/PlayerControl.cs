@@ -7,6 +7,12 @@ public class PlayerControl : MonoBehaviour
 {
 
 	CharacterController controller;
+
+    public bool gameOver;
+    
+    public int live;
+    public int score;
+
 	bool isGrounded= false;
 	public float speed = 6.0f;
 	public float jumpSpeed = 8.0f;
@@ -16,12 +22,17 @@ public class PlayerControl : MonoBehaviour
 
 	public Text text;
 	public Text infotext;
-
+    //game text zone
+    public Text scoreText;
+    public Text liveText;
+    public bool pause = false;
 
 
 
 	// Use this for initialization
 	void Start () {
+        setText();
+        live = 3;
 		controller = GetComponent<CharacterController>();
 		isGrounded = true;
 	}
@@ -108,15 +119,32 @@ public class PlayerControl : MonoBehaviour
 			return;
 		}
 
+        //TODO
+        if (Input.GetKey(KeyCode.P))
+        {
+            if (!pause)
+            {
+                Time.timeScale = 0;
+                pause = true;
+            }
+            else 
+            {
+                Time.timeScale = 1;
+                pause = false;
+            }
+        }
+
 	}
 
 	// Update is called once per frame
 	void Update () {
-	//	if (controller.isGrounded) {
+        setText();
+        
+        //	if (controller.isGrounded) {
 			GetComponent<Animation>().Play("run");            //play "run" animation if spacebar is not pressed
 			           //increase the speed of the movement by the factor "speed" 
 
-			UpdateKinectPostion();
+			//UpdateKinectPostion();
 			UpdateKeyboardPosition();
 		InvokeChangePosition ();
 		//	if(controller.isGrounded)           //set the flag isGrounded to true if character is grounded
@@ -174,19 +202,43 @@ public class PlayerControl : MonoBehaviour
 
 	}
 
-
-	//check if the character collects the powerups or the snags
-	void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.name == "Powerup(Clone)")
 		{
-			//do something
+            score += 50;
+            Destroy(other.gameObject); 
 		}
 		else if(other.gameObject.name == "Obstacle(Clone)")
 		{
-			//do something
-		} 
-		Destroy(other.gameObject);            //destroy the snag or powerup if colllected by the player
-		
-	}
+            score += 100;
+            Destroy(other.gameObject); 
+		}
+        else if (other.gameObject.name == "Pipe(Clone)")
+        {
+            live--;
+            Debug.Log("Live: " + live);
+            if (live <= 0)
+            {
+                stopGame();
+            }                
+            Destroy(other.gameObject);
+        }
+    }
+
+    //set score i live text
+    void setText()
+    {
+        scoreText.text = "Score: " + score.ToString();
+        liveText.text = "Live: " + live.ToString();
+    }
+
+    //when stop game 
+    void stopGame()
+    {
+        //TODO
+        Destroy(this);
+        speed = 0;
+        gameOver = true;
+    }
 }
