@@ -3,10 +3,11 @@ using System.Collections;
 
 public class PowerupScript: MonoBehaviour {
 
-    public float objectSpeed = Utils.ITEM_SPEED;
+	public float objectSpeed = Utils.ITEM_SPEED;
 	
 	// Update is called once per frame
-	void Update () {
-		transform.Translate(0, 0, objectSpeed);
+	void Update()
+	{
+		transform.Translate(0, objectSpeed, 0);
 	}
 }

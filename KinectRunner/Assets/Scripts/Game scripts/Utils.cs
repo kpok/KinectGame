@@ -21,7 +21,9 @@ public static class Utils
 		new Field{start = 0.2f, end = 0.4f, position = 1.25f, name="Right"},
 		new Field{start = 0.4f, end = 50.0f, position =  2.5f, name="VeryRight"},
 	};
-
+	public static float jumpDistance = 0.15f;
+	public static float SQUAT_DISTANCE = 0.2f;
+	public static float GroundPosition = 1.3f;
 }
 
 public class Field
