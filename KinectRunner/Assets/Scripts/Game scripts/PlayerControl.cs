@@ -5,10 +5,10 @@ using System;
 
 public class PlayerControl : MonoBehaviour
 {
-
 	CharacterController controller;
 
     public bool gameOver;
+    public bool pause = false;
     
     public int live;
     public int score;
@@ -22,12 +22,8 @@ public class PlayerControl : MonoBehaviour
 
 	public Text text;
 	public Text infotext;
-    //game text zone
     public Text scoreText;
     public Text liveText;
-    public bool pause = false;
-
-
 
 	// Use this for initialization
 	void Start () {
@@ -126,11 +122,13 @@ public class PlayerControl : MonoBehaviour
             {
                 Time.timeScale = 0;
                 pause = true;
+                return;
             }
             else 
             {
                 Time.timeScale = 1;
                 pause = false;
+                return;
             }
         }
 

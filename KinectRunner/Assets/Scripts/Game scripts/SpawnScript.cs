@@ -8,8 +8,7 @@ public class SpawnScript : MonoBehaviour {
     public GameObject pipe;
 	
 	float timeElapsed = 0;
-	float spawnCycle = 0.5f;
-	bool spawnPowerup = true;
+	float spawnCycle = Utils.SPAWN_CYCLE;
 
 	// Update is called once per frame
 	void Update () {
@@ -37,10 +36,8 @@ public class SpawnScript : MonoBehaviour {
                 temp = (GameObject)Instantiate(pipe);
                 Vector3 pos = temp.transform.position;
                 temp.transform.position = new Vector3(Random.Range(-3, 4), pos.y, pos.z);
-            }
-			
+            }			
 			timeElapsed -= spawnCycle;
-			spawnPowerup = !spawnPowerup;
 		}
 	}
 }

@@ -17,8 +17,9 @@ public class mapScript : MonoBehaviour
     private float startPnt;
     private float endPnt;
     private float time = 0;
-    private float speed = 0.5f;
+    private float speed = Utils.GROUND_SPEED;
     private Transform CenterPoints;
+   
     void Start()
     {
         startPnt = startPosZ;
@@ -47,7 +48,6 @@ public class mapScript : MonoBehaviour
                 createNewRoad();
             }
         }
-
     }
 
     void createNewRoad()
@@ -65,8 +65,10 @@ public class mapScript : MonoBehaviour
             CurrentRoads.Add(Instantiate(map, CenterPoints.position, Quaternion.identity) as GameObject);
         }
         else
+        {
             CurrentRoads.Add(Instantiate(map, new Vector3(startPosX, startPosY, 1), Quaternion.identity) as GameObject);
-        //znalezienie punktu triger
+        }
+        //znalezienie punktu triger na którym mapa ma zostać sklonowana
         CenterPoints = CurrentRoads[CurrentRoadId].transform.FindChild("ClonePoint");
     }
 }

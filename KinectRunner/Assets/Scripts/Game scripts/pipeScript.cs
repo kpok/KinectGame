@@ -3,7 +3,7 @@ using System.Collections;
 
 public class pipeScript : MonoBehaviour {
 
-    public float objectSpeed = -0.5f;
+    public float objectSpeed = Utils.ITEM_SPEED;
 
     // Update is called once per frame
     void Update()
