@@ -1,16 +1,16 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game scripts\SpawnScript.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Game scripts\PowerupScript.cs">
     <Files>
-      <File FileName="Assets\Scripts\Game scripts\Utils.cs" Line="9" Column="26" />
-      <File FileName="Assets\Scripts\Game scripts\PlayerControl.cs" Line="35" Column="2" />
-      <File FileName="Assets\Scripts\Game scripts\GroundControl.cs" Line="9" Column="18" />
-      <File FileName="e:\PG\inżynierka\REPOKInectGame\KinectGame\KinectRunner\Assets\Scripts\Game scripts\mapScript.cs" Line="17" Column="28" />
-      <File FileName="e:\PG\inżynierka\REPOKInectGame\KinectGame\KinectRunner\Assets\Scripts\Game scripts\pipeScript.cs" Line="11" Column="48" />
-      <File FileName="Assets\Scripts\Game scripts\TriggerZoneScript.cs" Line="7" Column="29" />
-      <File FileName="Assets\Scripts\Game scripts\PowerupScript.cs" Line="7" Column="2" />
+      <File FileName="Assets\Scripts\Game scripts\PowerupScript.cs" Line="8" Column="36" />
+      <File FileName="Assets\Scripts\Game scripts\Utils.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Game scripts\PlayerControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Game scripts\GroundControl.cs" Line="1" Column="1" />
+      <File FileName="e:\PG\inżynierka\REPOKInectGame\KinectGame\KinectRunner\Assets\Scripts\Game scripts\mapScript.cs" Line="1" Column="1" />
+      <File FileName="e:\PG\inżynierka\REPOKInectGame\KinectGame\KinectRunner\Assets\Scripts\Game scripts\pipeScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\Game scripts\TriggerZoneScript.cs" Line="1" Column="1" />
       <File FileName="Assets\Scripts\Game scripts\SpawnScript.cs" Line="29" Column="5" />
-      <File FileName="Assets\Scripts\Game scripts\ObstacleScript.cs" Line="4" Column="46" />
+      <File FileName="Assets\Scripts\Game scripts\ObstacleScript.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
