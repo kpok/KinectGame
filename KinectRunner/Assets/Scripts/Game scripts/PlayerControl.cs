@@ -32,8 +32,8 @@ public class PlayerControl : MonoBehaviour
 	private int calibrationCountSpineY = 0;
 	private int calibrationCountHeadY = 0;
 	
-	private float spineStablePositionY = -1.0f;
-	private float headStablePositionY = -1.0f;
+	private float spineStablePositionY = 1.2f;
+	private float headStablePositionY = 1.74f;
 	
 	public Text text;
 	public Text infotextHead;
@@ -194,7 +194,7 @@ public class PlayerControl : MonoBehaviour
 			if (playerFound == false)
 			{
 				playerFound = true;
-				StartCalibration();
+				//StartCalibration();
 			}
 			else if (calibration)
 			{
