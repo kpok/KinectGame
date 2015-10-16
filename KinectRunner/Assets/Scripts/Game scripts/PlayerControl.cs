@@ -14,6 +14,8 @@ public class PlayerControl : MonoBehaviour
 	public Text liveText;
 	public bool pause = false;
 	public bool isSquat = false;
+
+	private bool isDynamicMode = true;
 	
 	
 	public int frameCounter = 0;
@@ -118,12 +120,15 @@ public class PlayerControl : MonoBehaviour
 	
 	void UpdateKinectPostion()
 	{
+
+
+
+
 		infotextHead.text = "";
 		infotextFootL.text = "";
 		infotextFootR.text = "";
 		infotextSpine.text = "";
 		KinectManager manager = KinectManager.Instance;
-		
 		if (manager == null) 
 		{
 			infotextHead.text = "Failed to find Kinect";
@@ -342,9 +347,18 @@ public class PlayerControl : MonoBehaviour
 			}//play "run" animation if spacebar is not pressed
 			//increase the speed of the movement by the factor "speed" 
 		}
-		UpdateKinectPostion();
+		try
+		{
+			UpdateKinectPostion();
+		}
+		catch
+		{
+			infotextHead.text = "Failed to find kinect";
+		}
+
+
 		UpdateKeyboardPosition();
-		infotextHead.text = transform.position.y.ToString();
+		//infotextHead.text = transform.position.y.ToString();
 		
 		InvokeChangePosition ();
 		
