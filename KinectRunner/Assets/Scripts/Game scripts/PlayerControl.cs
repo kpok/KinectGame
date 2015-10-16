@@ -401,7 +401,9 @@ public class PlayerControl : MonoBehaviour
 			Debug.Log("Live: " + live);
 			if (live <= 0)
 			{
-				stopGame();
+                checkTopScores();
+                Application.LoadLevel("scoreMenu");
+                
 			}                
 		}
 		
@@ -423,4 +425,20 @@ public class PlayerControl : MonoBehaviour
 		speed = 0;
 		gameOver = true;
 	}
+
+    void checkTopScores()
+    {
+        foreach(playerScore ps in Globals.sc.player)
+        {
+            if(this.score>=ps.score)
+            {
+                playerScore player = new playerScore();
+                player.score = this.score;
+                player.nick = this.score.ToString();
+                Globals.sc.player.Add(player);
+                Globals.SaveScore();
+                return;
+            };
+        }
+    }
 }

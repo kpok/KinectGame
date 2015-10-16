@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class scoreScript : MonoBehaviour
 {
 
-    private List<int> scoreList = new List<int>(10);
+    private Score scores = Globals.sc;
 
     public Text scoreText;
 
@@ -18,9 +18,9 @@ public class scoreScript : MonoBehaviour
     public void getScore()
     {
         this.scoreText.text = "";
-        foreach (int score in scoreList)
+        foreach (playerScore ps in Globals.sc.player)
         {
-            this.scoreText.text += "Score: " + score.ToString() + "\n";
+            this.scoreText.text += "Score: " + ps.nick +" - "+ps.score.ToString()+"\n";
         }
     }
 }
