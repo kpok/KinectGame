@@ -18,25 +18,24 @@ public class SpawnScript : MonoBehaviour {
 		timeElapsed += Time.deltaTime;
 		if(timeElapsed > spawnCycle)
 		{
-			GameObject temp;
+
+			GameObject temp = null;
 			if(number==1)
 			{
 				temp = (GameObject)Instantiate(powerup);
-				Vector3 pos = temp.transform.position;
-				temp.transform.position = new Vector3(Random.Range(-3, 4), pos.y, pos.z);
+
 			}
 			else if(number==2)
 			{
 				temp = (GameObject)Instantiate(obstacle);
-				Vector3 pos = temp.transform.position;
-				temp.transform.position = new Vector3(Random.Range(-3, 4), pos.y, pos.z);
 			}
             else if (number == 3)
             {
                 temp = (GameObject)Instantiate(pipe);
-                Vector3 pos = temp.transform.position;
-                temp.transform.position = new Vector3(Random.Range(-3, 4), pos.y, pos.z);
-            }			
+            }
+			Vector3 pos = temp.transform.position;
+			int posId = Random.Range(0, Utils.FIELDS.Count);
+			temp.transform.position = new Vector3(Utils.FIELDS[posId].position, pos.y, pos.z);
 			timeElapsed -= spawnCycle;
 		}
 	}

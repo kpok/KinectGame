@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour
 	public Text scoreText;
 	public Text liveText;
 	public bool pause = false;
+	public bool isSquat = false;
 	
 	
 	public int frameCounter = 0;
@@ -231,11 +232,13 @@ public class PlayerControl : MonoBehaviour
 		{
 			Jump ();
 		}
-		
+
 		if (head.y < 
-		    headStablePositionY - Utils.SQUAT_DISTANCE)
+			headStablePositionY - Utils.SQUAT_DISTANCE) {
+			Squat (true);
+		} else 
 		{
-			Squat();
+			Squat(false);
 		}
 		
 		
@@ -283,9 +286,14 @@ public class PlayerControl : MonoBehaviour
 			Jump ();
 			return;
 		}
-		if (Input.GetKey(KeyCode.LeftShift))
+		if (Input.GetKey(KeyCode.X))
 		{
-			Squat ();
+			Squat (true);
+			return;
+		}
+		if (Input.GetKey(KeyCode.Z))
+		{
+			Squat (false);
 			return;
 		}
 		
@@ -319,12 +327,24 @@ public class PlayerControl : MonoBehaviour
 		Move ();
 		if (IsGrounded ()) 
 		{
-			GetComponent<Animation> ().Play ("run");            //play "run" animation if spacebar is not pressed
+			if (isSquat)
+			{
+				transform.position = new Vector3(transform.position.x, transform.position.y - Utils.PlayerYPostionSquatDiff, transform.position.z);
+				GetComponent<Animation> ().Play ("RollAnimation");
+
+			}
+				
+			else
+			{
+				transform.rotation = Quaternion.identity;
+
+				GetComponent<Animation> ().Play ("run"); 
+			}//play "run" animation if spacebar is not pressed
 			//increase the speed of the movement by the factor "speed" 
 		}
 		UpdateKinectPostion();
 		UpdateKeyboardPosition();
-		
+		infotextHead.text = transform.position.y.ToString();
 		
 		InvokeChangePosition ();
 		
@@ -374,11 +394,12 @@ public class PlayerControl : MonoBehaviour
 		
 	}
 	
-	public void Squat()
+	public void Squat(bool value)
 	{
 		if (IsGrounded ()) 
 		{
 			infotextFootR.text += "Squat";
+			isSquat = value;
 		}
 	}
 	
@@ -397,7 +418,7 @@ public class PlayerControl : MonoBehaviour
 		}
 		else if (other.gameObject.name == "Pipe(Clone)")
 		{
-			live--;
+			//live--;
 			Debug.Log("Live: " + live);
 			if (live <= 0)
 			{

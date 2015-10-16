@@ -24,6 +24,8 @@ public static class Utils
 	public static float jumpDistance = 0.15f;
 	public static float SQUAT_DISTANCE = 0.2f;
 	public static float GroundPosition = 1.3f;
+
+	public static float PlayerYPostionSquatDiff = 1.0f;
 }
 
 public class Field
