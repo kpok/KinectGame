@@ -20,6 +20,7 @@ public class Main : MonoBehaviour {
 	void Awake()
 	{
 		Globals.LoadConfig();
+        Globals.LoadScore();
 	}
 	
 	// Update is called once per frame

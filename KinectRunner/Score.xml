@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Score xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <player>
+    <nick>ktos</nick>
+    <score>100</score>
+  </player>
+  <player>
+    <nick>ktos2</nick>
+    <score>200</score>
+  </player>
+  <player>
+    <nick>300</nick>
+    <score>300</score>
+  </player>
+</Score>
