@@ -3,7 +3,6 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 using System.Threading;
-
 public class PlayerControl : MonoBehaviour
 {
 	public bool gameOver;
@@ -14,7 +13,6 @@ public class PlayerControl : MonoBehaviour
 	public Text liveText;
 	public bool pause = false;
 	public bool isSquat = false;
-
 	private bool isDynamicMode = true;
 	
 	
@@ -32,8 +30,8 @@ public class PlayerControl : MonoBehaviour
 	private int calibrationCountSpineY = 0;
 	private int calibrationCountHeadY = 0;
 	
-	private float spineStablePositionY = -1.0f;
-	private float headStablePositionY = -1.0f;
+	private float spineStablePositionY = 1.2f;
+	private float headStablePositionY = 1.74f;
 	
 	public Text text;
 	public Text infotextHead;
@@ -120,10 +118,6 @@ public class PlayerControl : MonoBehaviour
 	
 	void UpdateKinectPostion()
 	{
-
-
-
-
 		infotextHead.text = "";
 		infotextFootL.text = "";
 		infotextFootR.text = "";
@@ -194,7 +188,7 @@ public class PlayerControl : MonoBehaviour
 			if (playerFound == false)
 			{
 				playerFound = true;
-				StartCalibration();
+				//StartCalibration();
 			}
 			else if (calibration)
 			{
@@ -237,9 +231,8 @@ public class PlayerControl : MonoBehaviour
 		{
 			Jump ();
 		}
-
 		if (head.y < 
-			headStablePositionY - Utils.SQUAT_DISTANCE) {
+		    headStablePositionY - Utils.SQUAT_DISTANCE) {
 			Squat (true);
 		} else 
 		{
@@ -249,7 +242,8 @@ public class PlayerControl : MonoBehaviour
 		
 		
 		var field = GetPositionXFromKinect (spine);
-		ChangePositionX (field);
+		//ChangePositionX (field);
+		ChangePositionXDynamic ((spine.x + head.x) / 2.0f);;
 		
 	}
 	
@@ -336,13 +330,11 @@ public class PlayerControl : MonoBehaviour
 			{
 				transform.position = new Vector3(transform.position.x, transform.position.y - Utils.PlayerYPostionSquatDiff, transform.position.z);
 				GetComponent<Animation> ().Play ("RollAnimation");
-
 			}
-				
+			
 			else
 			{
 				transform.rotation = Quaternion.identity;
-
 				GetComponent<Animation> ().Play ("run"); 
 			}//play "run" animation if spacebar is not pressed
 			//increase the speed of the movement by the factor "speed" 
@@ -355,8 +347,6 @@ public class PlayerControl : MonoBehaviour
 		{
 			infotextHead.text = "Failed to find kinect";
 		}
-
-
 		UpdateKeyboardPosition();
 		//infotextHead.text = transform.position.y.ToString();
 		
@@ -391,6 +381,19 @@ public class PlayerControl : MonoBehaviour
 		
 		transform.position = new Vector3 (field.position, transform.position.y, transform.position.z);
 		text.text = field.name;
+	}
+	void ChangePositionXDynamic (float real)
+	{
+		real += 0.6f;
+		real = real / 1.2f;
+		real = real * 6.0f;
+		real -= 3.0f;
+		float gameX = real;
+		if (gameX < -3.0f)
+			gameX = -3.0f;
+		if (gameX > 3.0f)
+			gameX = 3.0f;
+		transform.position = new Vector3 (gameX, transform.position.y, transform.position.z);
 	}
 	
 	
@@ -432,13 +435,13 @@ public class PlayerControl : MonoBehaviour
 		}
 		else if (other.gameObject.name == "Pipe(Clone)")
 		{
-			//live--;
+			live--;
 			Debug.Log("Live: " + live);
 			if (live <= 0)
 			{
-                checkTopScores();
-                Application.LoadLevel("scoreMenu");
-                
+				checkTopScores();
+				Application.LoadLevel("scoreMenu");
+				
 			}                
 		}
 		
@@ -460,20 +463,19 @@ public class PlayerControl : MonoBehaviour
 		speed = 0;
 		gameOver = true;
 	}
-
-    void checkTopScores()
-    {
-        foreach(playerScore ps in Globals.score.player)
-        {
-            if(this.score>=ps.score)
-            {
-                playerScore player = new playerScore();
-                player.score = this.score;
-                player.nick = this.score.ToString();
-                Globals.score.player.Add(player);
-                Globals.SaveScore();
-                return;
-            };
-        }
-    }
+	void checkTopScores()
+	{
+		foreach(playerScore ps in Globals.score.player)
+		{
+			if(this.score>=ps.score)
+			{
+				playerScore player = new playerScore();
+				player.score = this.score;
+				player.nick = this.score.ToString();
+				Globals.score.player.Add(player);
+				Globals.SaveScore();
+				return;
+			};
+		}
+	}
 }
