@@ -249,8 +249,7 @@ public class PlayerControl : MonoBehaviour
 		
 		
 		var field = GetPositionXFromKinect (spine);
-		//ChangePositionX (field);
-		ChangePositionXDynamic (spine.x);;
+		ChangePositionX (field);
 		
 	}
 	
@@ -392,20 +391,6 @@ public class PlayerControl : MonoBehaviour
 		
 		transform.position = new Vector3 (field.position, transform.position.y, transform.position.z);
 		text.text = field.name;
-	}
-
-	void ChangePositionXDynamic (float real)
-	{
-		real -= Utils.DynamicRealField.start;
-		real = real / (Utils.DynamicRealField.end + Utils.DynamicRealField.start);
-
-		real = real * (Utils.DynamicGameField.end + Utils.DynamicGameField.start);
-
-		real += Utils.DynamicGameField.start;
-
-		float gameX = real;
-
-		transform.position = new Vector3 (gameX, transform.position.y, transform.position.z);
 	}
 	
 	

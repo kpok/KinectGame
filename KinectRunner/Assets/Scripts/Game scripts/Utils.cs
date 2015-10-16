@@ -15,15 +15,15 @@ public static class Utils
     public static float SPAWN_CYCLE = 0.8f;
 	public static List<Field> FIELDS = new List<Field>
 	{
-		new Field{start = -50.0f, end = -0.3f, position = -2.5f, name = "VeryLeft"},
-		new Field{start = -0.3f, end = -0.1f, position = -1.25f, name = "Left"},
-		new Field{start = -0.1f, end = 0.1f, position =  0.0f, name = "Center"},
-		new Field{start = 0.1f, end = 0.3f, position = 1.25f, name="Right"},
-		new Field{start = 0.3f, end = 50.0f, position =  2.5f, name="VeryRight"},
+		new Field{start = -50.0f, end = -0.6f, position = -2.5f, name = "VeryLeft"},
+		new Field{start = -0.6f, end = -0.2f, position = -1.25f, name = "Left"},
+		new Field{start = -0.2f, end = 0.2f, position =  0.0f, name = "Center"},
+		new Field{start = 0.2f, end = 0.4f, position = 1.25f, name="Right"},
+		new Field{start = 0.4f, end = 50.0f, position =  2.5f, name="VeryRight"},
 	};
 
 	public static Field DynamicRealField = 
-	new Field{start = -0.4f, end = 0.4f, position =  0.0f, name = "Center"};
+	new Field{start = -1.0f, end = 1.0f, position =  0.0f, name = "Center"};
 	public static Field DynamicGameField = 
 	new Field{start = -3.0f, end = 3.0f, position =  0.0f, name = "Center"};
 
