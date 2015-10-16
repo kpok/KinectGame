@@ -4,12 +4,19 @@ using System.Xml.Serialization;
 using System.IO;
 using System.Xml;
 using System;
+using System.Collections.Generic;
 
 public static class Globals
 {
 
     public static Configuration config = null;
-    public static Score sc = null;
+	public static Score score = new Score()
+	{
+	player = new List<playerScore>()
+		{
+			new playerScore(){ nick = "", score = 0}
+		},
+	};
     public static float GameActiveTime = 0;
 
     public static bool LoadConfig()
@@ -85,12 +92,12 @@ public static class Globals
                 FileStream fs = new FileStream(path, FileMode.Open);
                 XmlReader reader = XmlReader.Create(fs);
 
-                Globals.sc = (Score)serializer.Deserialize(reader);
+                Globals.score = (Score)serializer.Deserialize(reader);
                 fs.Close();
 
-                for (int i = 0; i < sc.player.Capacity; i++)
+                for (int i = 0; i < score.player.Capacity; i++)
                 {
-                    Debug.Log(sc.player[i].nick);
+                    Debug.Log(score.player[i].nick);
                 }
                 return true;
             }
@@ -117,10 +124,10 @@ public static class Globals
             System.Xml.Serialization.XmlSerializer writer = new System.Xml.Serialization.XmlSerializer(typeof(Score));
 
             System.IO.StreamWriter file = new System.IO.StreamWriter(path);
-            writer.Serialize(file, Globals.sc);
+            writer.Serialize(file, Globals.score);
             file.Close();
             Debug.Log("zapis");
-            foreach (playerScore ps in Globals.sc.player)
+            foreach (playerScore ps in Globals.score.player)
             {
                 Debug.Log(ps.nick);
             }

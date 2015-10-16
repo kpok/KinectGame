@@ -66,6 +66,7 @@
      <Compile Include="Assets\Scripts\Game scripts\ObstacleScript.cs" />
      <Compile Include="Assets\Scripts\Game scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\Game scripts\PowerupScript.cs" />
+     <Compile Include="Assets\Scripts\Game scripts\Score.cs" />
      <Compile Include="Assets\Scripts\Game scripts\SpawnScript.cs" />
      <Compile Include="Assets\Scripts\Game scripts\TriggerZoneScript.cs" />
      <Compile Include="Assets\Scripts\Game scripts\Utils.cs" />

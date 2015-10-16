@@ -449,14 +449,14 @@ public class PlayerControl : MonoBehaviour
 
     void checkTopScores()
     {
-        foreach(playerScore ps in Globals.sc.player)
+        foreach(playerScore ps in Globals.score.player)
         {
             if(this.score>=ps.score)
             {
                 playerScore player = new playerScore();
                 player.score = this.score;
                 player.nick = this.score.ToString();
-                Globals.sc.player.Add(player);
+                Globals.score.player.Add(player);
                 Globals.SaveScore();
                 return;
             };
